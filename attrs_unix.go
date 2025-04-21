@@ -1,5 +1,5 @@
-//go:build darwin || dragonfly || freebsd || (!android && linux) || netbsd || openbsd || solaris || aix || js || zos
-// +build darwin dragonfly freebsd !android,linux netbsd openbsd solaris aix js zos
+//go:build darwin || dragonfly || freebsd || (!android && linux) || netbsd || openbsd || solaris || aix || js || zos || wasip1
+// +build darwin dragonfly freebsd !android,linux netbsd openbsd solaris aix js zos wasip1
 
 package sftp
 

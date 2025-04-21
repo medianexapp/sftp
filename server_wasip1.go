@@ -1,5 +1,5 @@
-//go:build !windows && !wasip1
-// +build !windows,!wasip1
+//go:build wasip1
+// +build wasip1
 
 package sftp
 
@@ -9,7 +9,7 @@ import (
 )
 
 func (s *Server) openfile(path string, flag int, mode fs.FileMode) (file, error) {
-	return os.OpenFile(path, flag, mode)
+	return nil, nil
 }
 
 func (s *Server) lstat(name string) (os.FileInfo, error) {

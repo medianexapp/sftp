@@ -19,28 +19,28 @@ const (
 		sshFileXferAttrACmodTime | sshFileXferAttrExtended
 )
 
-// fileInfo is an artificial type designed to satisfy os.FileInfo.
-type fileInfo struct {
+// FileInfo is an artificial type designed to satisfy os.FileInfo.
+type FileInfo struct {
 	name string
 	stat *FileStat
 }
 
 // Name returns the base name of the file.
-func (fi *fileInfo) Name() string { return fi.name }
+func (fi *FileInfo) Name() string { return fi.name }
 
 // Size returns the length in bytes for regular files; system-dependent for others.
-func (fi *fileInfo) Size() int64 { return int64(fi.stat.Size) }
+func (fi *FileInfo) Size() int64 { return int64(fi.stat.Size) }
 
 // Mode returns file mode bits.
-func (fi *fileInfo) Mode() os.FileMode { return fi.stat.FileMode() }
+func (fi *FileInfo) Mode() os.FileMode { return fi.stat.FileMode() }
 
 // ModTime returns the last modification time of the file.
-func (fi *fileInfo) ModTime() time.Time { return fi.stat.ModTime() }
+func (fi *FileInfo) ModTime() time.Time { return fi.stat.ModTime() }
 
 // IsDir returns true if the file is a directory.
-func (fi *fileInfo) IsDir() bool { return fi.Mode().IsDir() }
+func (fi *FileInfo) IsDir() bool { return fi.Mode().IsDir() }
 
-func (fi *fileInfo) Sys() interface{} { return fi.stat }
+func (fi *FileInfo) Sys() any { return fi.stat }
 
 // FileStat holds the original unmarshalled values from a call to READDIR or
 // *STAT. It is exported for the purposes of accessing the raw values via
@@ -78,7 +78,7 @@ type StatExtended struct {
 }
 
 func fileInfoFromStat(stat *FileStat, name string) os.FileInfo {
-	return &fileInfo{
+	return &FileInfo{
 		name: name,
 		stat: stat,
 	}

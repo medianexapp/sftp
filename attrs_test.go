@@ -5,4 +5,4 @@ import (
 )
 
 // ensure that attrs implemenst os.FileInfo
-var _ os.FileInfo = new(fileInfo)
+var _ os.FileInfo = new(FileInfo)

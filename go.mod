@@ -1,4 +1,4 @@
-module github.com/labulakalia/sftp
+module github.com/medianexapp/sftp
 
 go 1.24.0
 

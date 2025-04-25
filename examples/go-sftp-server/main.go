@@ -11,7 +11,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/labulakalia/sftp"
+	"github.com/medianexapp/sftp"
 	"golang.org/x/crypto/ssh"
 )
 
